@@ -1,0 +1,22 @@
+<section id="tasks">
+    @if(isAddingTask){
+        <app-new-task [userId]="userId" (close)="onCloseAddTask()"/>
+    }
+  <header>
+    <h2>{{ name }}'s Tasks</h2>
+    <menu>
+      <button (click)="onStartAddTask()">Add Task</button>
+      <!-- <button (click)="onTestApi()">Test API</button> -->
+    </menu>
+  </header>
+  @if(!(tasks$ | async)?.length){
+    <div>no task found</div>
+  }
+  <ul>
+    @for(task of (tasks$ |async); track task.id){
+    <li >
+      <app-task [task]="task"></app-task>
+    </li>
+    }
+  </ul>
+</section>
