@@ -13,6 +13,7 @@ import { TasksComponent } from '../tasks.component';
 export class NewTaskComponent {
   @Input({required:true}) userId!:number;
   @Output() close = new EventEmitter<void>();
+  @Output() refetchTasksList = new EventEmitter<void>();
 
   private tasksService=inject(TasksService);
   enteredTitle = '';
@@ -21,15 +22,19 @@ export class NewTaskComponent {
   onCancel() {
     this.close.emit();
   }
-  onSubmit() {
+  // onRefetchTasksList(){
+  //   this.refetchTasksList.emit();
+  // }
+  async onSubmit() {
     console.log("Submit clicked!!!");
-    this.tasksService.addTask({
+    await this.tasksService.addTask({
       title: this.enteredTitle,
       summary: this.enteredSummary,
       dueDate: this.enteredDate,
       completedDate:new Date(),
       userId:this.userId
     },this.userId);
+    await this.refetchTasksList.emit(); 
     // this.tasksService.getData();
     this.close.emit();
   }

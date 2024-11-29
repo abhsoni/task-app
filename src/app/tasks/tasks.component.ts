@@ -41,6 +41,10 @@ export class TasksComponent {
   onCloseAddTask() {
     this.isAddingTask = false;
   }
+  onRefetchTasksList() {
+    console.log("Callback function!!!")
+    this.fetchTasks();
+  }
   onTestApi() {
     console.log('on Test Api clicked!');
     this.tasksService.testApi();

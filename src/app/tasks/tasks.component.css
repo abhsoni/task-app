@@ -50,6 +50,7 @@
     gap: 1rem;
     max-height: 50vh;
     overflow: auto;
+    scrollbar-color: #d0c2e1;
   }
   
   @media (min-width: 768px) {

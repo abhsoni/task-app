@@ -17,25 +17,28 @@ export class TasksService {
   // }
 
   getUserTasks(userId: number): Observable<any[]> {
-    return from(
-      fetch(`https://localhost:7103/api/task/${userId}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`Failed to fetch tasks: ${response.statusText}`);
-          }
-          return response.json();
-        })
-        .then(data=>data.tasks)
-        .catch((error) => {
-          console.error('Error fetching tasks:', error);
-          return [];
-        })
-    );
+    return from(this.fetchUserTasks(userId));
+  }
+  
+  private async fetchUserTasks(userId: number): Promise<any[]> {
+    try {
+      const response = await fetch(`https://localhost:7103/api/task/${userId}`);
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch tasks: ${response.statusText}`);
+      }
+  
+      const data = await response.json();
+      return data.tasks || []; // Ensure tasks is an array or fallback to an empty array
+    } catch (error) {
+      console.error('Error fetching tasks:', error);
+      return [];
+    }
   }
 
-  addTask(taskData: NewTaskData, userId: number) {
+  async addTask(taskData: NewTaskData, userId: number) {
     console.log('add task started');
-    const postData = fetch('https://localhost:7103/api/task', {
+    const postData = await fetch('https://localhost:7103/api/task', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -57,10 +60,10 @@ export class TasksService {
     //   dueDate: taskData.dueDate,
     // });
   }
-  completeTask(id: number) {
+  async completeTask(id: number) {
     console.log(id);
     console.log('add task started');
-    const updateTask = fetch(`https://localhost:7103/api/task/${id}`, {
+    const updateTask = await fetch(`https://localhost:7103/api/task/${id}`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -68,9 +71,9 @@ export class TasksService {
     }).then((response) => response.json());
     console.log(updateTask);
   }
-  deleteTask(id: number) {
+  async deleteTask(id: number) {
     console.log('delete task started');
-    const updateTask = fetch(`https://localhost:7103/api/task/${id}`, {
+    const updateTask = await fetch(`https://localhost:7103/api/task/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-type': 'application/json',

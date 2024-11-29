@@ -1,6 +1,6 @@
 <section id="tasks">
     @if(isAddingTask){
-        <app-new-task [userId]="userId" (close)="onCloseAddTask()"/>
+        <app-new-task [userId]="userId" (close)="onCloseAddTask()" (refetchTasksList)="onRefetchTasksList()"/>
     }
   <header>
     <h2>{{ name }}'s Tasks</h2>
@@ -15,7 +15,7 @@
   <ul>
     @for(task of (tasks$ |async); track task.id){
     <li >
-      <app-task [task]="task"></app-task>
+      <app-task [task]="task" (refetchTasksList)="onRefetchTasksList()"></app-task>
     </li>
     }
   </ul>

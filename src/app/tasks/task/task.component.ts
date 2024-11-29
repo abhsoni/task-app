@@ -14,12 +14,15 @@ import { TasksService } from '../tasks.service';
 export class TaskComponent {
   @Input({required:true}) task!:Task;
   @Output() complete = new EventEmitter<string>();
+  @Output() refetchTasksList=new EventEmitter<void>();
   private tasksService = inject(TasksService);
-  onCompleteTask(){
+  async onCompleteTask(){
     console.log(this.task.taskId);
-    this.tasksService.completeTask(this.task.taskId);
+    await this.tasksService.completeTask(this.task.taskId);
+    await this.refetchTasksList.emit();
   }
-  onDeleteTask(){
-    this.tasksService.deleteTask(this.task.taskId);
+  async onDeleteTask(){
+    await this.tasksService.deleteTask(this.task.taskId);
+    await this.refetchTasksList.emit();
   }
 }
