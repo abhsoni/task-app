@@ -38,6 +38,7 @@ main {
       text-align: left;
     }
   }
+<<<<<<< HEAD
 
 /* For WebKit browsers (e.g., Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
@@ -76,3 +77,5 @@ main {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+=======
+>>>>>>> master

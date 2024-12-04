@@ -1,34 +1,20 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { UserComponent } from "./user/user.component";
-import { DUMMY_USERS } from './dummy-users';
-import { TasksComponent } from "./tasks/tasks.component";
-import { AppService } from './app.service';
-=======
+import { AppService } from '../app.service';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { UserComponent } from "./user/user.component";
-import { TasksComponent } from "./tasks/tasks.component";
+import { HeaderComponent } from '../header/header.component';
+import { UserComponent } from '../user/user.component';
+import { TasksComponent } from '../tasks/tasks.component';
 import { CommonModule } from '@angular/common';
-import { UserPageComponent } from './user-page/user-page.component';
-
->>>>>>> master
+import { UserPageComponent } from '../user-page/user-page.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home-page',
   standalone: true,
-<<<<<<< HEAD
-  imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent],
-=======
   imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent,CommonModule, RouterOutlet, RouterLink, RouterLinkActive,UserPageComponent],
->>>>>>> master
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  templateUrl: './home-page.component.html',
+  styleUrl: './home-page.component.css'
 })
-export class AppComponent {
-<<<<<<< HEAD
+export class HomePageComponent {
   users:any;
   selectedUserId ?:number;
   get selectedUser(){
@@ -41,6 +27,7 @@ export class AppComponent {
     this.appService.getUsersList().subscribe(
       (response) => {
         this.users = response;
+        console.log(response);
       },
       (error) => {
         console.error('Error fetching data', error);
@@ -53,8 +40,4 @@ export class AppComponent {
     console.log("Selected User with ID: "+id);
     console.log(this.selectedUserId)
   }
-=======
-  
->>>>>>> master
-  title = 'first-angular-app';
 }
