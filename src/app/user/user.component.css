@@ -1,0 +1,61 @@
+button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  background-color: #433352;
+  color: #c3b3d1;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  width: 100%;
+  min-width: 10rem;
+  text-align: left;
+}
+
+button:hover,
+button:active,
+.active {
+  background-color: #9965dd;
+  color: #150722;
+}
+
+img {
+  width: 2rem;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+div {
+  display: inline-block;
+  width: 40px; /* Adjust the width for circle size */
+  height: 40px; /* Adjust the height for circle size */
+  border: 2px solid black; /* Circle border color */
+  border-radius: 50%; /* Makes the element circular */
+  text-align: center; /* Center the text horizontally */
+  line-height: 40px; /* Match this with the height for vertical centering */
+  font-size: 20px; /* Adjust the font size */
+  font-weight:500; /* Make the letter bold if desired */
+  color:white; /* Text color */
+  background-color:#9965dd; /* Circle background color */
+}
+
+span {
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+.circle {
+  display: inline-block;
+  width: 50px; /* Adjust the width for circle size */
+  height: 50px; /* Adjust the height for circle size */
+  border: 2px solid black; /* Circle border color */
+  border-radius: 50%; /* Makes the element circular */
+  text-align: center; /* Center the text horizontally */
+  line-height: 50px; /* Match this with the height for vertical centering */
+  font-size: 20px; /* Adjust the font size */
+  font-weight: bold; /* Make the letter bold if desired */
+  color: black; /* Text color */
+  background-color: white; /* Circle background color */
+}
