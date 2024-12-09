@@ -1,34 +1,3 @@
 <app-header></app-header>
-<<<<<<< HEAD
-<main>
-  <ul id="users">
-    @for (user of users; track user.userId){
-      <li>
-        <app-user [selected]="user.userId===selectedUserId" [user]="user" (select)="onSelectUser($event)"></app-user>
-      </li>
-    }
-    <!-- <li>
-      <app-user [user]="users[0]" (select)="onSelectUser($event)"></app-user>
-    </li>
-    <li>
-      <app-user [user]="users[1]" (select)="onSelectUser($event)"></app-user>
-    </li>
-    <li>
-      <app-user [user]="users[2]" (select)="onSelectUser($event)"></app-user>
-    </li>
-    <li>
-      <app-user [user]="users[3]" (select)="onSelectUser($event)"></app-user>
-    </li> -->
-  </ul>
-  @if(selectedUser){
-    <app-tasks [userId]="selectedUser.userId" [name]="selectedUser.name" />
-  }
-  @else {
-    <p id="fallback">Select a user to see their tasks.</p>
-  }
-  <!-- <app-tasks [name]="selectedUser.name" /> -->
-</main>
-=======
 
 <router-outlet></router-outlet>
->>>>>>> master

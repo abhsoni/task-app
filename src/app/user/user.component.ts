@@ -1,11 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 import { type User } from './user.model';
-<<<<<<< HEAD
-import { CardComponent } from "../shared/card/card.component";
-=======
 import { CardComponent } from '../shared/card/card.component';
->>>>>>> master
 
 const index = Math.floor(Math.round(DUMMY_USERS.length*Math.random()));
 @Component({

@@ -1,5 +1,6 @@
 <main>
     <ul id="users">
+      <a href="user">Go to Create User Page</a>
       @for (user of users; track user.userId){
         <li>
           <app-user [selected]="user.userId===selectedUserId" [user]="user" (select)="onSelectUser($event)"></app-user>
